@@ -1,0 +1,26 @@
+PROBLEM: I/P- N=3
+         O/P- move disk 1 from rod 1 to rod 3
+              move disk 2 from rod 1 to rod 2
+              move disk 1 from rod 3 to rod 2
+              move disk 3 from rod 1 to rod 3
+              move disk 1 from rod 2 to rod 1
+              move disk 2 from rod 2 to rod 3
+              move disk 1 from rod 1 to rod 3
+              7
+              
+              
+              
+              
+ SOLUTION:
+ 
+ long long toh(int N, int from, int to, int aux) {
+       
+        if(N>0){
+            toh(N-1, from, aux, to);
+            cout<<"move disk "<<N<<" from rod "<<from<<" to rod "<<to<<endl;
+            toh(N-1, aux, to, from);
+        }
+        return (long long) pow(2,N)-1;
+    }
+    
+    
